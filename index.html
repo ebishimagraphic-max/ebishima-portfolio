@@ -161,7 +161,7 @@
 </head>
 <body>
   <header class="shell">
-    <a href="#home" aria-label="EBISHIMA home"><img class="brand" src="images/ebishima-logo-transparent.png" alt="EBISHIMA"></a>
+    <a href="#home" aria-label="EBISHIMA home"><img class="brand" src="ebishima-logo-transparent.png" alt="EBISHIMA"></a>
     <nav aria-label="Main navigation">
       <a href="#gallery">GALLERY</a><a href="#books">BOOKS</a><a href="#links">LINKS</a><a href="#about">ABOUT</a>
     </nav>
@@ -169,7 +169,7 @@
 
   <main class="shell">
     <section id="home" class="page home active" aria-label="Home">
-      <div class="hero-image"><img src="images/home-make-time-for-you.png" alt="MAKE TIME FOR YOU, EBISHIMA graphic poster"></div>
+      <div class="hero-image"><img src="home-make-time-for-you.png" alt="MAKE TIME FOR YOU, EBISHIMA graphic poster"></div>
     </section>
 
     <section id="gallery" class="page">
@@ -207,7 +207,7 @@
     <section id="about" class="page">
       <div class="page-title"><h1>ABOUT</h1></div>
       <div class="about-layout">
-        <img class="profile-photo" src="images/profile-camera.png" alt="EBISHIMA profile photograph">
+        <img class="profile-photo" src="profile-camera.png" alt="EBISHIMA profile photograph">
         <div class="profile-copy">
           <h2>EBISHIMA</h2>
           <p class="role">GRAPHIC CREATOR</p>
@@ -231,7 +231,7 @@
   </main>
 
   <footer class="shell">
-    <img class="footer-mark" src="images/ebishima-logo-transparent.png" alt="EBISHIMA">
+    <img class="footer-mark" src="ebishima-logo-transparent.png" alt="EBISHIMA">
     <span>© EBISHIMA</span>
   </footer>
 
@@ -269,16 +269,9 @@
         </figure>`).join("");
     }
 
-    fetch("works.json")
-      .then(response => response.json())
-      .then(data => {
-        collections = data.categories || [];
-        renderCategories();
-        route();
-      })
-      .catch(() => {
-        document.getElementById("categoryGrid").textContent = "作品データを読み込めませんでした。works.jsonをご確認ください。";
-      });
+    collections = {"categories": [{"id": "ebi-series", "title": "EBI SERIES", "cover": "ebi-series-01.png", "works": [{"title": "EBI SERIES 01", "image": "ebi-series-01.png"}]}, {"id": "mid-century", "title": "MID-CENTURY INSPIRED", "cover": "mid-century-inspired.png", "works": [{"title": "KEEP CREATING", "image": "mid-century-inspired.png"}]}, {"id": "bauhaus", "title": "BAUHAUS INSPIRED", "cover": "bauhaus-inspired.png", "works": [{"title": "MONO GRID", "image": "bauhaus-inspired.png"}]}, {"id": "minimal-architecture", "title": "MINIMAL ARCHITECTURE INSPIRED", "cover": "minimal-architecture-inspired.png", "works": [{"title": "DISTANCE", "image": "minimal-architecture-inspired.png"}]}, {"id": "other", "title": "OTHER", "cover": "other-inspired.png", "works": [{"title": "RIDE SLOW", "image": "other-inspired.png"}]}]}.categories;
+    renderCategories();
+    route();
 
     window.addEventListener("hashchange", route);
   </script>
