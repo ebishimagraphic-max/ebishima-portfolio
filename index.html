@@ -1,41 +1,235 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="EBISHIMAのグラフィック、イラスト、クリエイティブ作品を紹介するポートフォリオ。">
-<title>EBISHIMA | Creative Portfolio</title>
-<style>
-:root{--paper:#f8f5ee;--ink:#283433;--orange:#e87535;--teal:#779c98;--mustard:#d9ae4c;--muted:#77776c;--line:#ded9cd;--card:#eee8dc}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Noto Sans JP",sans-serif;line-height:1.7}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}.wrap{width:min(1120px,90%);margin:auto}
-header{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}.brand{width:210px;max-height:70px;object-fit:contain;object-position:left}.nav{display:flex;flex-wrap:wrap;gap:22px;font-size:12px;letter-spacing:.12em}.nav a:hover{color:var(--orange)}
-.page{display:none;min-height:55vh;padding:48px 0 80px}.page.active{display:block}.hero{padding:60px 0;display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}.eyebrow{font-size:11px;letter-spacing:.18em;color:var(--orange);font-weight:bold;margin:0 0 14px}h1{font-size:clamp(36px,5vw,62px);line-height:1.12;margin:0 0 20px;font-weight:650;letter-spacing:-.03em}.lead{font-size:15px;color:#62665e;max-width:650px}.hero-art{background:#f0e2c8;border-radius:24px;padding:10px}.hero-art img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:18px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-block;border:1px solid var(--ink);padding:10px 17px;font-size:12px;letter-spacing:.06em}.btn.primary{background:var(--ink);color:white}
-.section{padding:48px 0}.heading{display:flex;justify-content:space-between;align-items:end;gap:18px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:24px}.heading h2{font-size:27px;margin:0;font-weight:600}.heading p,.meta{font-size:11px;letter-spacing:.1em;color:var(--muted);margin:0}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.card{min-width:0}.picture{aspect-ratio:1.2;background:var(--card);overflow:hidden}.picture img{width:100%;height:100%;object-fit:cover}.placeholder{height:100%;display:grid;place-items:center;background:#dce3dd}.placeholder svg{width:85%;height:85%}.card h3{font-size:17px;margin:12px 0 2px}.desc{font-size:13px;color:#62665e;margin:8px 0}.link{display:inline-block;margin-top:10px;border-bottom:1px solid var(--orange);font-size:12px;padding-bottom:2px}.featured{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.featured img{width:100%}.featured h3{font-size:25px;margin:0 0 10px}.work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.work-grid .picture{aspect-ratio:1}.back{display:inline-block;font-size:12px;color:var(--muted);margin-bottom:22px}.back:hover{color:var(--orange)}.note{padding:28px;background:#eee8dc}.links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.tile{padding:18px;border:1px solid var(--line);display:flex;justify-content:space-between}.tile:hover{border-color:var(--orange)}.small{font-size:11px;color:var(--muted)}footer{border-top:1px solid var(--line);padding:25px 0 35px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:11px;color:var(--muted)}.footer-logo{width:130px;max-height:45px;object-fit:contain;object-position:left}
-@media(max-width:760px){header{align-items:flex-start;flex-direction:column}.brand{width:170px}.nav{gap:14px}.hero,.featured{grid-template-columns:1fr}.hero{padding:38px 0;gap:25px}.section{padding:34px 0}.heading{align-items:flex-start;flex-direction:column;gap:5px}.work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.links{grid-template-columns:1fr}footer{align-items:flex-start;flex-direction:column}}@media(max-width:430px){.work-grid{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EBISHIMAのグラフィック、イラスト、クリエイティブ作品を紹介するポートフォリオ。">
+  <title>EBISHIMA | Creative Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #faf8f3;
+      --ink: #282821;
+      --orange: #e87535;
+      --muted: #77746c;
+      --line: #dedbd3;
+      --card: #eee7d9;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Zen Kurenaido", "Yu Gothic", "Meiryo", sans-serif;
+      line-height: 1.9;
+      letter-spacing: .025em;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(1120px, 88%); margin: 0 auto; }
+    .serif, h1, h2, h3, .nav, .eyebrow, .btn, .meta, .footer-en {
+      font-family: "Zen Kurenaido", "Yu Gothic", "Meiryo", sans-serif;
+    }
+    header {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { width: 205px; max-height: 66px; object-fit: contain; object-position: left center; }
+    .nav { display: flex; flex-wrap: wrap; gap: 25px; font-size: 16px; letter-spacing: .12em; }
+    .nav a, .text-link { transition: color .2s ease; }
+    .nav a:hover, .text-link:hover { color: var(--orange); }
+    .page { display: none; min-height: 58vh; padding: 54px 0 88px; }
+    .page.active { display: block; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      align-items: center;
+      gap: clamp(28px, 5vw, 64px);
+      padding: 62px 0 70px;
+    }
+    .eyebrow { margin: 0 0 16px; color: var(--orange); font-size: 15px; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { margin: 0 0 22px; font-size: clamp(48px, 6.4vw, 82px); font-weight: 400; line-height: 1.12; letter-spacing: .015em; }
+    .lead { max-width: 570px; color: var(--muted); font-size: 15px; line-height: 2; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-block; border: 1px solid var(--ink); padding: 10px 19px; font-size: 16px; letter-spacing: .06em; transition: background .2s, color .2s; }
+    .btn.primary { background: var(--ink); color: white; }
+    .btn:hover { background: var(--orange); border-color: var(--orange); color: white; }
+    .hero-art { overflow: hidden; background: #f0e2c8; border-radius: 3px; padding: 12px; }
+    .hero-art img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; }
+    .section { padding: 34px 0 64px; }
+    .heading { display: flex; justify-content: space-between; align-items: end; gap: 18px; border-bottom: 1px solid var(--line); padding-bottom: 15px; margin-bottom: 28px; }
+    .heading h2 { margin: 0; font-size: clamp(30px, 4vw, 42px); font-weight: 400; letter-spacing: .04em; }
+    .heading p { margin: 0; color: var(--muted); font-size: 12px; letter-spacing: .06em; }
+    .featured { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: clamp(25px, 5vw, 58px); }
+    .featured-image { background: var(--card); padding: 12px; }
+    .featured-image img { width: 100%; aspect-ratio: 1.18 / 1; object-fit: contain; }
+    .featured h3 { margin: 0 0 10px; font-size: 32px; font-weight: 600; }
+    .meta { color: var(--muted); font-size: 14px; letter-spacing: .12em; }
+    .link { display: inline-block; margin-top: 14px; padding-bottom: 3px; border-bottom: 1px solid var(--orange); font-size: 13px; }
+    .back { display: inline-block; margin-bottom: 24px; color: var(--muted); font-size: 13px; letter-spacing: .08em; }
+    .back:hover { color: var(--orange); }
+    .single-work { width: min(760px, 100%); margin-top: 34px; }
+    .single-work img { width: 100%; max-height: 760px; object-fit: contain; background: var(--card); padding: 14px; }
+    .note-panel { padding: clamp(24px, 4vw, 42px); background: #eee8dc; }
+    .note-panel h2 { margin: 0 0 12px; font-size: 30px; }
+    .social-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 30px; }
+    .social-tile { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 19px 20px; border: 1px solid var(--line); transition: border-color .2s, background .2s; }
+    .social-tile:hover { border-color: var(--orange); background: #fffdf8; }
+    .social-tile strong { font-family: "Zen Kurenaido", sans-serif; font-size: 23px; font-weight: 600; }
+    .contact { margin-top: 48px; padding-top: 30px; border-top: 1px solid var(--line); }
+    .contact h2 { margin: 0 0 8px; font-size: 30px; }
+    .email-link { display: inline-block; margin-top: 8px; color: var(--ink); border-bottom: 1px solid var(--orange); overflow-wrap: anywhere; }
+    .about-layout { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 42px; margin-top: 32px; }
+    .about-logo { display: grid; place-items: center; padding: 25px; background: #f0e2c8; }
+    .about-logo img { width: 100%; max-height: 260px; object-fit: contain; }
+    .about-layout h2 { margin: 0 0 14px; font-size: 34px; }
+    footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 24px 0 34px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    .footer-logo { width: 125px; max-height: 44px; object-fit: contain; object-position: left center; }
+    @media (max-width: 760px) {
+      header { align-items: flex-start; flex-direction: column; gap: 12px; }
+      .brand { width: 170px; }
+      .nav { gap: 18px; font-size: 15px; }
+      .hero, .featured, .about-layout { grid-template-columns: 1fr; }
+      .hero { padding: 42px 0 48px; }
+      .hero-art { max-width: 600px; }
+      .section { padding: 24px 0 48px; }
+      .heading { align-items: flex-start; flex-direction: column; gap: 4px; }
+      .social-links { grid-template-columns: 1fr; }
+      footer { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-<header class="wrap">
-<a href="#home"><img class="brand" src="ebishima-logo-transparent.png" alt="EBISHIMA"></a>
-<nav class="nav"><a href="#gallery">GALLERY</a><a href="#books">BOOKS</a><a href="#links">LINKS</a><a href="#about">ABOUT</a></nav>
-</header>
-<main>
-<section id="home" class="page active">
-<div class="wrap hero"><div><p class="eyebrow">INDEPENDENT CREATIVE PORTFOLIO</p><h1>Art, Design<br>& Everyday Stories.</h1><p class="lead">グラフィック、イラスト、言葉。<br>日々の中から生まれる、小さな世界をつくっています。</p><div class="buttons"><a class="btn primary" href="#gallery">GALLERYを見る</a><a class="btn" href="#about">ABOUT EBISHIMA</a></div></div><div class="hero-art"><img src="ebi-series-01.png.png" alt="EBISHIMAのえびシリーズ"></div></div>
-<div class="wrap section"><div class="heading"><h2>Selected Works</h2><p>A selection of featured works.</p></div><div class="featured"><a href="#ebi-series"><img src="ebi-series-01.png.png" alt="代表作"></a><div><p class="eyebrow">01 / EBI SERIES</p><h3>EBI SERIES</h3><p class="lead">作品の中から、代表的な作品を紹介します。</p><a class="link" href="#ebi-series">作品を見る ↗</a></div></div></div>
-<div class="wrap section"><div class="heading"><h2>Gallery</h2><p>作品を見る</p></div><div class="cards"><a class="card" href="#ebi-series"><div class="picture"><img src="ebi-series-01.png.png" alt="EBI SERIES"></div><h3>EBI SERIES</h3><p class="meta">えびシリーズ</p><p class="desc">EBISHIMAを代表するシリーズ。</p></a><a class="card" href="#graphic-works"><div class="picture placeholder"><svg viewBox="0 0 300 250"><circle cx="95" cy="90" r="55" fill="#e87535"/><rect x="145" y="35" width="65" height="145" rx="32" fill="#d9ae4c"/><path d="M90 180L150 115L210 180Z" fill="#304d60"/></svg></div><h3>GRAPHIC WORKS</h3><p class="meta">グラフィック作品</p><p class="desc">スタイルを横断する作品たち。</p></a></div></div>
-</section>
-<section id="gallery" class="page"><div class="wrap"><a class="back" href="#home">← HOME</a><p class="eyebrow">EXPLORE THE WORKS</p><h1>GALLERY</h1><p class="lead">シリーズごとに作品をまとめています。気になるカテゴリからご覧ください。</p><div class="cards"><a class="card" href="#ebi-series"><div class="picture"><img src="ebi-series-01.png.png" alt="えびシリーズ"></div><h3>EBI SERIES</h3><p class="meta">えびシリーズ</p><p class="desc">えびをモチーフにした代表シリーズ。</p><span class="link">シリーズを見る ↗</span></a><a class="card" href="#graphic-works"><div class="picture placeholder"><svg viewBox="0 0 300 250"><circle cx="95" cy="90" r="55" fill="#e87535"/><rect x="145" y="35" width="65" height="145" rx="32" fill="#d9ae4c"/><path d="M90 180L150 115L210 180Z" fill="#304d60"/></svg></div><h3>GRAPHIC WORKS</h3><p class="meta">グラフィック作品</p><p class="desc">ミッドセンチュリー風、バウハウス風など。</p><span class="link">作品を見る ↗</span></a></div></div></section>
-<section id="ebi-series" class="page"><div class="wrap"><a class="back" href="#gallery">← GALLERY</a><p class="eyebrow">SERIES 01</p><h1>EBI SERIES</h1><p class="lead">えびをモチーフにした作品シリーズです。</p><div class="work-grid"><article class="card"><div class="picture"><img src="ebi-series-01.png.png" alt="えびシリーズ 01"></div><h3>EBI SERIES 01</h3><p class="meta">GRAPHIC POSTER</p></article><article class="card"><div class="picture placeholder"><svg viewBox="0 0 300 300"><rect width="300" height="300" fill="#f1dfbd"/><circle cx="145" cy="135" r="85" fill="#779c98"/><path d="M78 165C100 80 190 75 225 135C250 180 200 235 140 220C95 210 85 190 78 165Z" fill="#e87535"/></svg></div><h3>EBI SERIES 02</h3><p class="meta">COMING SOON</p></article><article class="card"><div class="picture placeholder"><svg viewBox="0 0 300 300"><rect width="300" height="300" fill="#e6e8dd"/><circle cx="150" cy="150" r="92" fill="#d9ae4c"/><circle cx="150" cy="150" r="54" fill="#e87535"/></svg></div><h3>EBI SERIES 03</h3><p class="meta">COMING SOON</p></article></div><p class="small">※ 02・03は仮の表示です。実際の作品画像がそろったら差し替えます。</p></div></section>
-<section id="graphic-works" class="page"><div class="wrap"><a class="back" href="#gallery">← GALLERY</a><p class="eyebrow">COLLECTION</p><h1>GRAPHIC WORKS</h1><p class="lead">ミッドセンチュリー風、バウハウス風、建築ミニマル風など、スタイルを横断した作品をまとめています。</p><div class="work-grid"><article class="card"><div class="picture placeholder"><svg viewBox="0 0 300 300"><rect width="300" height="300" fill="#f2dfbd"/><circle cx="150" cy="125" r="75" fill="#df743d"/><path d="M75 205H225L190 240H110Z" fill="#283e59"/><path d="M95 70H205L150 125Z" fill="#d9ae4c"/></svg></div><h3>GEOMETRIC STUDIES</h3><p class="meta">BAUHAUS-INSPIRED</p></article><article class="card"><div class="picture placeholder"><svg viewBox="0 0 300 300"><rect width="300" height="300" fill="#dce3dd"/><rect x="55" y="45" width="85" height="210" rx="42" fill="#e87535"/><circle cx="210" cy="100" r="48" fill="#d9ae4c"/><path d="M150 220L210 150L270 220Z" fill="#304d60"/></svg></div><h3>COLOR AND SHAPE</h3><p class="meta">MID-CENTURY-INSPIRED</p></article><article class="card"><div class="picture placeholder"><svg viewBox="0 0 300 300"><rect width="300" height="300" fill="#eee8dc"/><rect x="45" y="40" width="210" height="220" fill="#dce3dd"/><rect x="75" y="70" width="60" height="190" fill="#304d60"/><rect x="150" y="120" width="75" height="140" fill="#e87535"/><circle cx="190" cy="80" r="30" fill="#d9ae4c"/></svg></div><h3>MINIMAL STRUCTURES</h3><p class="meta">ARCHITECTURE-INSPIRED</p></article></div><p class="small">※ 現在のカード画像は仮のイメージです。実作品を追加するときに差し替えます。</p></div></section>
-<section id="books" class="page"><div class="wrap"><a class="back" href="#home">← HOME</a><p class="eyebrow">PUBLICATIONS</p><h1>BOOKS</h1><p class="lead">Kindleなどで発表している出版作品を紹介するページです。</p><div class="note"><h2>EBISHIMA BOOKS</h2><p>作品集や出版物を、ここに追加していきます。</p><p class="small">Kindleの作品ページURLは、あとから実際のリンクに差し替えます。</p></div></div></section>
-<section id="links" class="page"><div class="wrap"><a class="back" href="#home">← HOME</a><p class="eyebrow">FIND MORE</p><h1>LINKS</h1><p class="lead">EBISHIMAの活動や最新作品はこちらから。</p><div class="links"><a class="tile" href="https://note.com/" target="_blank" rel="noopener">note <span>↗</span></a><a class="tile" href="https://x.com/" target="_blank" rel="noopener">X <span>↗</span></a><a class="tile" href="https://www.threads.net/" target="_blank" rel="noopener">Threads <span>↗</span></a><a class="tile" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram <span>↗</span></a></div><p class="small">※ 現在は各サービスのトップページへの仮リンクです。個人のプロフィールURLに差し替えます。</p></div></section>
-<section id="about" class="page"><div class="wrap"><a class="back" href="#home">← HOME</a><p class="eyebrow">ABOUT</p><h1>EBISHIMA</h1><div class="featured"><div class="hero-art"><img src="ebishima-logo-transparent.png" alt="EBISHIMAロゴ" style="object-fit:contain;max-height:280px"></div><div><h3>日々の中から、<br>小さな世界をつくる。</h3><p class="lead">EBISHIMAは、グラフィック、イラスト、言葉を通じて、日常から生まれるアイデアをかたちにするクリエイティブブランドです。</p><p class="lead">色、形、余白。いろいろなスタイルを行き来しながら、自分らしい表現を探しています。</p></div></div></div></section>
-</main>
-<footer class="wrap"><a href="#home"><img class="footer-logo" src="ebishima-logo-transparent.png" alt="EBISHIMA"></a><span>© EBISHIMA Creative Portfolio</span><a href="#home">BACK TO TOP ↑</a></footer>
-<script>
-function showPage(){const id=(location.hash||"#home").slice(1);const pages=[...document.querySelectorAll(".page")];const valid=pages.some(p=>p.id===id);pages.forEach(p=>p.classList.toggle("active",p.id===(valid?id:"home")));window.scrollTo({top:0,behavior:"smooth"});}
-window.addEventListener("hashchange",showPage);window.addEventListener("DOMContentLoaded",showPage);
-</script>
+  <header class="wrap">
+    <a href="#home" aria-label="EBISHIMA home"><img class="brand" src="ebishima-logo-transparent.png" alt="EBISHIMA"></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#gallery">GALLERY</a>
+      <a href="#books">BOOKS</a>
+      <a href="#links">LINKS</a>
+      <a href="#about">ABOUT</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="wrap hero">
+        <div>
+          <p class="eyebrow">Independent Creative Portfolio</p>
+          <h1>Art, Design<br>&amp; Everyday Stories.</h1>
+          <p class="lead">グラフィック、イラスト、言葉。<br>日々の中から生まれる、小さな作品をつくっています。</p>
+          <div class="buttons">
+            <a class="btn primary" href="#gallery">Selected Works</a>
+            <a class="btn" href="#about">About</a>
+          </div>
+        </div>
+        <div class="hero-art"><img src="ebi-series-01.png" alt="代表作"></div>
+      </div>
+
+      <div class="wrap section">
+        <div class="heading">
+          <h2>Selected Works</h2>
+          <p>A selection of featured works.</p>
+        </div>
+        <div class="featured">
+          <a class="featured-image" href="#gallery" aria-label="代表作を見る"><img src="ebi-series-01.png" alt="代表作"></a>
+          <div>
+            <p class="eyebrow">Featured Work</p>
+            <h3>Selected Work 01</h3>
+            <p class="lead">作品の中から、代表的な作品を紹介します。</p>
+            <a class="link" href="#gallery">作品を見る ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="page">
+      <div class="wrap">
+        <a class="back" href="#home">← HOME</a>
+        <p class="eyebrow">Selected Works</p>
+        <h1>GALLERY</h1>
+        <p class="lead">A selection of featured works.</p>
+        <div class="single-work">
+          <img src="ebi-series-01.png" alt="代表作">
+          <p class="meta">SELECTED WORK 01</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="books" class="page">
+      <div class="wrap">
+        <a class="back" href="#home">← HOME</a>
+        <p class="eyebrow">Publications</p>
+        <h1>BOOKS</h1>
+        <div class="note-panel">
+          <h2>Kindle</h2>
+          <p class="lead">Kindleなどで発表している出版作品を紹介するページです。</p>
+          <p class="meta">出版作品の情報は順次追加します。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="links" class="page">
+      <div class="wrap">
+        <a class="back" href="#home">← HOME</a>
+        <p class="eyebrow">Find More</p>
+        <h1>LINKS</h1>
+        <p class="lead">SNSで作品や活動について発信しています。</p>
+        <div class="social-links">
+          <a class="social-tile" href="https://x.com/emisan_maru" target="_blank" rel="noopener noreferrer"><strong>X</strong><span>↗</span></a>
+          <a class="social-tile" href="https://www.threads.com/@ebishima_emi_contents" target="_blank" rel="noopener noreferrer"><strong>Threads</strong><span>↗</span></a>
+          <a class="social-tile" href="https://www.instagram.com/ebishima_emi_contents/" target="_blank" rel="noopener noreferrer"><strong>Instagram</strong><span>↗</span></a>
+        </div>
+        <div class="contact">
+          <p class="eyebrow">Contact</p>
+          <h2>お問い合わせ</h2>
+          <p class="lead">制作のご依頼・ご相談など、お気軽にご連絡ください。</p>
+          <a class="email-link" href="mailto:ebishima.graphic@gmail.com">ebishima.graphic@gmail.com</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="page">
+      <div class="wrap">
+        <a class="back" href="#home">← HOME</a>
+        <p class="eyebrow">About</p>
+        <h1>ABOUT</h1>
+        <div class="about-layout">
+          <div class="about-logo"><img src="ebishima-logo-transparent.png" alt="EBISHIMAロゴ"></div>
+          <div>
+            <h2>日々の中から、<br>小さな作品を。</h2>
+            <p class="lead">グラフィック、イラスト、言葉を通じて、日常から生まれるアイデアをかたちにしています。</p>
+            <p class="lead">色、形、余白。さまざまな表現を試しながら、ひとつひとつ作品を制作しています。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <a href="#home"><img class="footer-logo" src="ebishima-logo-transparent.png" alt="EBISHIMA"></a>
+    <span>© EBISHIMA Creative Portfolio</span>
+    <a class="footer-en" href="#home">BACK TO TOP ↑</a>
+  </footer>
+
+  <script>
+    function showPage() {
+      const id = (location.hash || "#home").slice(1);
+      const pages = [...document.querySelectorAll(".page")];
+      const valid = pages.some(page => page.id === id);
+      pages.forEach(page => page.classList.toggle("active", page.id === (valid ? id : "home")));
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    window.addEventListener("hashchange", showPage);
+    window.addEventListener("DOMContentLoaded", showPage);
+  </script>
 </body>
 </html>
