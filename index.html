@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="EBISHIMA independent graphic and creative portfolio.">
+  <meta name="description" content="Small Things, Creative Stories. 日常の小さな発見を、グラフィックやイラストに。">
   <title>EBISHIMA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,15 +42,30 @@
     main { min-height: 70vh; }
     .page { display: none; padding: 42px 0 86px; }
     .page.active { display: block; }
-    .home { padding-top: 28px; }
+    .home { padding-top: clamp(44px, 8vh, 100px); }
+    .hero-layout {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, .95fr);
+      gap: clamp(36px, 7vw, 110px); align-items: center; min-height: min(76vh, 820px);
+    }
+    .hero-copy .eyebrow {
+      margin: 0 0 34px; color: var(--orange); font: 400 15px "Josefin Sans", sans-serif;
+      letter-spacing: .16em;
+    }
+    .hero-copy h1 {
+      max-width: 650px; margin: 0 0 28px; font: 400 clamp(52px, 6.5vw, 100px)/1.08 "Zen Kurenaido", sans-serif;
+      letter-spacing: .005em;
+    }
+    .hero-copy .subline {
+      margin: 0 0 10px; color: var(--muted); font-size: clamp(17px, 1.55vw, 22px); line-height: 1.8;
+    }
+    .hero-copy .intro {
+      margin: 0; color: var(--muted); font-size: clamp(14px, 1.15vw, 17px); line-height: 2;
+    }
     .hero-image {
-      width: 100%; height: min(76vh, 850px); min-height: 420px;
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
+      width: 100%; height: min(74vh, 760px); min-height: 400px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
     }
-    .hero-image img {
-      width: 100%; height: 100%; object-fit: contain; object-position: center;
-    }
+    .hero-image img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
     .page-title {
       display: flex; justify-content: space-between; align-items: baseline;
       gap: 24px; padding-bottom: 14px; margin-bottom: 28px;
@@ -97,6 +112,17 @@
     }
     .work-image img { width: 100%; height: 100%; object-fit: contain; }
     .work-item figcaption { padding-top: 9px; color: var(--muted); font-family: "Josefin Sans", sans-serif; letter-spacing: .08em; }
+    .work-image { cursor: zoom-in; }
+    .lightbox {
+      position: fixed; inset: 0; z-index: 20; display: none; align-items: center;
+      justify-content: center; padding: 28px; background: rgba(30, 29, 25, .92);
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: min(92vw, 1100px); max-height: 88vh; width: auto; height: auto; object-fit: contain; }
+    .lightbox-close {
+      position: absolute; top: 18px; right: 24px; border: 0; background: transparent;
+      color: white; font: 300 34px "Josefin Sans", sans-serif; cursor: pointer;
+    }
     .books-card { max-width: 720px; padding: 24px 0; border-bottom: 1px solid var(--line); }
     .books-card h2 { margin: 0 0 8px; font: 400 34px "Cormorant Garamond", serif; }
     .books-card p { margin: 0 0 12px; color: var(--muted); }
@@ -134,6 +160,8 @@
     }
     .footer-mark { width: 116px; max-height: 36px; object-fit: contain; object-position: left center; }
     @media (max-width: 980px) {
+      .hero-layout { grid-template-columns: minmax(0, 1fr) minmax(280px, .9fr); gap: 28px; }
+      .hero-copy h1 { font-size: clamp(48px, 7vw, 72px); }
       .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .about-layout { grid-template-columns: 240px minmax(0, 1fr); gap: 36px; }
@@ -146,7 +174,11 @@
       nav a { font-size: 13px; }
       .page { padding: 30px 0 58px; }
       .home { padding-top: 16px; }
-      .hero-image { height: 68vh; min-height: 340px; }
+      .hero-layout { grid-template-columns: 1fr; min-height: auto; gap: 26px; }
+      .hero-copy h1 { font-size: clamp(44px, 11vw, 68px); margin-bottom: 18px; }
+      .hero-copy .subline { font-size: 17px; }
+      .hero-copy .eyebrow { margin-bottom: 20px; }
+      .hero-image { height: 62vh; min-height: 340px; }
       .page-title { align-items: flex-start; flex-direction: column; gap: 6px; }
       .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
       .category-card { padding: 9px; }
@@ -169,7 +201,15 @@
 
   <main class="shell">
     <section id="home" class="page home active" aria-label="Home">
-      <div class="hero-image"><img src="home-make-time-for-you.png" alt="MAKE TIME FOR YOU, EBISHIMA graphic poster"></div>
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">INDEPENDENT CREATIVE PORTFOLIO</p>
+          <h1>Small Things,<br>Creative Stories.</h1>
+          <p class="subline">小さな発見から、生まれるクリエイティブ。</p>
+          <p class="intro">日常の小さな発見を、グラフィックやイラストに。</p>
+        </div>
+        <div class="hero-image"><img src="home-make-time-for-you.png" alt="MAKE TIME FOR YOU, EBISHIMA graphic poster"></div>
+      </div>
     </section>
 
     <section id="gallery" class="page">
@@ -230,6 +270,11 @@
     </section>
   </main>
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged artwork">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+    <img id="lightboxImage" src="" alt="">
+  </div>
+
   <footer class="shell">
     <img class="footer-mark" src="ebishima-logo-transparent.png" alt="EBISHIMA">
     <span>© EBISHIMA</span>
@@ -264,10 +309,34 @@
       const grid = document.getElementById("workGrid");
       grid.innerHTML = item.works.map(work => `
         <figure class="work-item">
-          <div class="work-image"><img src="${work.image}" alt="${work.title || item.title}"></div>
+          <div class="work-image" data-image="${work.image}" data-title="${work.title || item.title}">
+            <img src="${work.image}" alt="${work.title || item.title}">
+          </div>
           <figcaption>${work.title || ""}</figcaption>
         </figure>`).join("");
+      grid.querySelectorAll(".work-image").forEach(item => {
+        item.addEventListener("click", () => openLightbox(item.dataset.image, item.dataset.title));
+      });
     }
+
+    function openLightbox(src, title) {
+      const box = document.getElementById("lightbox");
+      const image = document.getElementById("lightboxImage");
+      image.src = src;
+      image.alt = title || "Artwork";
+      box.classList.add("open");
+    }
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.remove("open");
+      document.getElementById("lightboxImage").src = "";
+    }
+    document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+    document.getElementById("lightbox").addEventListener("click", event => {
+      if (event.target.id === "lightbox") closeLightbox();
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeLightbox();
+    });
 
     collections = {"categories": [{"id": "ebi-series", "title": "EBI SERIES", "cover": "ebi-series-01.png", "works": [{"title": "EBI SERIES 01", "image": "ebi-series-01.png"}]}, {"id": "mid-century", "title": "MID-CENTURY INSPIRED", "cover": "mid-century-inspired.png", "works": [{"title": "KEEP CREATING", "image": "mid-century-inspired.png"}]}, {"id": "bauhaus", "title": "BAUHAUS INSPIRED", "cover": "bauhaus-inspired.png", "works": [{"title": "MONO GRID", "image": "bauhaus-inspired.png"}]}, {"id": "minimal-architecture", "title": "MINIMAL ARCHITECTURE INSPIRED", "cover": "minimal-architecture-inspired.png", "works": [{"title": "DISTANCE", "image": "minimal-architecture-inspired.png"}]}, {"id": "other", "title": "OTHER", "cover": "other-inspired.png", "works": [{"title": "RIDE SLOW", "image": "other-inspired.png"}]}]}.categories;
     renderCategories();
