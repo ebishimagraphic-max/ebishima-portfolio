@@ -1,0 +1,59 @@
+{
+  "categories": [
+    {
+      "id": "ebi-series",
+      "title": "EBI SERIES",
+      "cover": "images/ebi-series-01.png",
+      "works": [
+        {
+          "title": "EBI SERIES 01",
+          "image": "images/ebi-series-01.png"
+        }
+      ]
+    },
+    {
+      "id": "mid-century",
+      "title": "MID-CENTURY INSPIRED",
+      "cover": "images/mid-century-inspired.png",
+      "works": [
+        {
+          "title": "KEEP CREATING",
+          "image": "images/mid-century-inspired.png"
+        }
+      ]
+    },
+    {
+      "id": "bauhaus",
+      "title": "BAUHAUS INSPIRED",
+      "cover": "images/bauhaus-inspired.png",
+      "works": [
+        {
+          "title": "MONO GRID",
+          "image": "images/bauhaus-inspired.png"
+        }
+      ]
+    },
+    {
+      "id": "minimal-architecture",
+      "title": "MINIMAL ARCHITECTURE INSPIRED",
+      "cover": "images/minimal-architecture-inspired.png",
+      "works": [
+        {
+          "title": "DISTANCE",
+          "image": "images/minimal-architecture-inspired.png"
+        }
+      ]
+    },
+    {
+      "id": "other",
+      "title": "OTHER",
+      "cover": "images/other-inspired.png",
+      "works": [
+        {
+          "title": "RIDE SLOW",
+          "image": "images/other-inspired.png"
+        }
+      ]
+    }
+  ]
+}
