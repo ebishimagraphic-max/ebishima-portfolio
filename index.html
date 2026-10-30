@@ -42,19 +42,50 @@
     main { min-height: 70vh; }
     .page { display: none; padding: 42px 0 86px; }
     .page.active { display: block; }
-    .home { padding: 0; }
+    .home { padding: 0; width: 100vw; margin-left: calc(50% - 50vw); }
     .hero-layout {
       position: relative; display: flex; align-items: center;
-      min-height: min(82vh, 820px); overflow: hidden;
-      margin: 0 calc((min(var(--max), 100% - 64px) - 100vw) / 2);
-      padding: clamp(52px, 7vh, 86px) max(32px, calc((100vw - var(--max)) / 2));
+      width: 100%; min-height: calc(100vh - 94px); overflow: hidden;
+      margin: 0; padding: clamp(48px, 6vh, 76px) clamp(32px, 5.7vw, 100px);
       background: var(--paper);
+      isolation: isolate;
+    }
+    .hero-layout::before {
+      content: ""; position: absolute; z-index: 0;
+      width: clamp(360px, 34vw, 560px); aspect-ratio: 1;
+      border-radius: 50%; background: #aaa17a;
+      top: clamp(-390px, -22vw, -250px); left: 32%;
+    }
+    .hero-layout::after {
+      content: ""; position: absolute; z-index: 0;
+      width: clamp(480px, 48vw, 760px); aspect-ratio: 1;
+      border-radius: 50%; background: #242421;
+      left: clamp(-390px, -23vw, -230px); bottom: clamp(-590px, -34vw, -390px);
+    }
+    .hero-star {
+      position: absolute; z-index: 2; left: 45%; bottom: 10%;
+      width: 92px; height: 92px; opacity: .8;
+    }
+    .hero-star::before, .hero-star::after {
+      content: ""; position: absolute; left: 50%; top: 50%;
+      width: 100%; height: 2px; background: #9d946e; transform: translate(-50%,-50%);
+    }
+    .hero-star::after { transform: translate(-50%,-50%) rotate(90deg); }
+    .hero-star i {
+      position: absolute; left: 50%; top: 50%; width: 70%; height: 2px;
+      background: #9d946e; transform: translate(-50%,-50%) rotate(45deg);
+    }
+    .hero-star i:last-child { transform: translate(-50%,-50%) rotate(-45deg); }
+    .hero-star b {
+      position: absolute; width: 8px; height: 8px; border-radius: 50%;
+      background: #9d946e; left: 50%; top: 0; transform: translateX(-50%);
+      box-shadow: 0 92px #9d946e;
     }
     .hero-copy .eyebrow {
       margin: 0 0 30px; color: var(--orange); font: 400 15px "Josefin Sans", sans-serif;
       letter-spacing: .16em;
     }
-    .hero-copy { position: relative; z-index: 2; width: 57%; max-width: 760px; }
+    .hero-copy { position: relative; z-index: 3; width: 53%; max-width: 790px; flex: 0 0 53%; }
     .hero-copy h1 {
       max-width: 790px; margin: 0 0 24px; font: 400 clamp(48px, 5.2vw, 82px)/1.08 "Zen Kurenaido", sans-serif;
       letter-spacing: .005em;
@@ -67,9 +98,9 @@
       margin: 0; color: var(--muted); font-size: clamp(14px, 1.15vw, 17px); line-height: 2;
     }
     .hero-image {
-      position: absolute; z-index: 1; top: 0; right: 0; width: 56%; height: 100%;
+      position: absolute; z-index: 1; top: 0; right: 0; width: 51%; height: 100%;
       background-image: url("home-hero-decor.png"); background-repeat: no-repeat;
-      background-position: center right; background-size: cover;
+      background-position: center center; background-size: cover;
     }
     .page-title {
       display: flex; justify-content: space-between; align-items: baseline;
@@ -165,10 +196,11 @@
     }
     .footer-mark { width: 116px; max-height: 36px; object-fit: contain; object-position: left center; }
     @media (max-width: 980px) {
-      .hero-layout { min-height: 72vh; padding-left: 28px; padding-right: 28px; }
-      .hero-copy { width: 59%; }
-      .hero-copy h1 { font-size: clamp(46px, 5.6vw, 68px); }
-      .hero-image { width: 55%; opacity: .98; }
+      .hero-layout { min-height: calc(82vh - 94px); padding-left: 28px; padding-right: 28px; }
+      .hero-copy { width: 54%; flex-basis: 54%; }
+      .hero-copy h1 { font-size: clamp(44px, 5.2vw, 68px); }
+      .hero-image { width: 50%; opacity: .98; }
+      .hero-star { left: 43%; transform: scale(.78); }
       .category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .about-layout { grid-template-columns: 240px minmax(0, 1fr); gap: 36px; }
@@ -181,13 +213,17 @@
       nav a { font-size: 13px; }
       .page { padding: 30px 0 58px; }
       .home { padding-top: 0; }
-      .hero-layout { min-height: auto; margin: 0 -18px; padding: 54px 18px 0; display: block; }
+      .home { width: 100%; margin-left: 0; }
+      .hero-layout { min-height: auto; margin: 0 -18px; padding: 48px 18px 0; display: block; }
+      .hero-layout::before { width: 300px; top: -220px; left: 48%; }
+      .hero-layout::after { width: 360px; left: -240px; bottom: -310px; }
       .hero-copy { width: 100%; max-width: 100%; }
       .hero-copy h1 { font-size: clamp(42px, 10vw, 62px); margin-bottom: 18px; max-width: 100%; }
       .hero-copy .subline { font-size: 17px; }
       .hero-copy .eyebrow { margin-bottom: 20px; font-size: 12px; }
       .hero-signature { margin-top: 14px; }
-      .hero-image { position: relative; width: calc(100% + 36px); height: 58vw; min-height: 260px; max-height: 420px; margin: 12px -18px 0; background-position: center 45%; background-size: cover; }
+      .hero-image { position: relative; z-index: 1; width: calc(100% + 36px); height: 75vw; min-height: 280px; max-height: 440px; margin: 12px -18px 0; background-position: center center; background-size: cover; }
+      .hero-star { display: none; }
       .page-title { align-items: flex-start; flex-direction: column; gap: 6px; }
       .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
       .category-card { padding: 9px; }
@@ -219,6 +255,7 @@
           <p class="hero-signature">えびしま</p>
         </div>
         <div class="hero-image" role="img" aria-label="EBISHIMAのエビとミッドセンチュリーの幾何学模様"></div>
+        <div class="hero-star" aria-hidden="true"><i></i><i></i><b></b></div>
       </div>
     </section>
 
