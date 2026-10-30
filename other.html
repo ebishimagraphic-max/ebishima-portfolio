@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="EBISHIMA OTHER 作品一覧。">
+<title>OTHER | EBISHIMA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#faf8f3;--ink:#282821;--orange:#e87535;--muted:#77746c;--line:#dedbd3;--card:#eee7d9;--blue:#789b9a;--gold:#dba33e}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Zen Kurenaido","Yu Gothic","Meiryo",sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,92vw);margin:0 auto}
+section{scroll-margin-top:16px}
+
+/* header */
+.header{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:20px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.brand{height:42px;width:auto;object-fit:contain}
+.nav{display:flex;gap:24px;font-size:.82rem;letter-spacing:.16em}
+.nav a{padding-bottom:3px;border-bottom:2px solid transparent;transition:border-color .2s}
+.nav a:hover{border-color:var(--orange)}
+
+/* hero */
+.hero{padding:52px 0 0}
+.eyebrow{font-size:.72rem;letter-spacing:.28em;color:var(--muted);margin:0 0 14px;text-transform:uppercase}
+h1{font-size:clamp(1.85rem,4vw,3.1rem);line-height:1.32;margin:0 0 16px;font-weight:normal}
+.lead{margin:0;color:var(--muted);font-size:.98rem}
+.hero-visual{margin:32px 0 0;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:14px;display:flex;align-items:center;justify-content:center}
+.hero-visual img{max-height:58vh;width:auto;max-width:100%;height:auto;object-fit:contain}
+
+/* sections */
+.sec{padding:66px 0 0}
+h2{font-size:clamp(1.4rem,2.4vw,2rem);font-weight:normal;margin:0 0 6px}
+.sec-sub{margin:0 0 24px;color:var(--muted);font-size:.94rem}
+
+/* gallery featured */
+.featured{border:1px solid var(--line);border-radius:8px;background:var(--card);padding:16px;display:flex;align-items:center;justify-content:center}
+.featured img{max-height:46vh;width:auto;max-width:100%;height:auto;object-fit:contain}
+
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:20px}
+.cat{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:8px;background:#fff;padding:9px;transition:transform .18s,border-color .18s}
+.cat:hover{transform:translateY(-3px);border-color:var(--orange)}
+.thumb{height:168px;display:flex;align-items:center;justify-content:center;background:var(--card);border-radius:4px;overflow:hidden;margin-bottom:8px}
+.thumb img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.cat-num{font-size:.63rem;letter-spacing:.2em;color:var(--muted);line-height:1.4}
+.cat-name{font-size:.79rem;line-height:1.45;letter-spacing:.01em}
+
+/* books */
+.book-card{display:flex;align-items:center;justify-content:space-between;gap:16px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:18px 20px;transition:border-color .18s,background .18s}
+.book-card:hover{border-color:var(--orange);background:var(--card)}
+.book-card strong{font-weight:normal;font-size:1rem}
+.book-card span{color:var(--muted);font-size:.82rem}
+
+/* links */
+.links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.link-card{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:14px 16px;transition:border-color .18s,background .18s}
+.link-card:hover{border-color:var(--orange);background:var(--card)}
+.link-card .lbl{font-size:.95rem}
+.link-card .arrow{color:var(--muted);font-size:.85rem}
+
+/* about */
+.about{display:grid;grid-template-columns:150px 1fr;gap:34px;align-items:center}
+.about-logo{width:150px;height:auto;object-fit:contain}
+.about p{margin:0 0 12px;color:var(--muted);font-size:.94rem}
+.about p:last-child{margin-bottom:0}
+
+/* footer */
+.footer{margin-top:70px;border-top:1px solid var(--line);padding:26px 0 34px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);letter-spacing:.06em}
+.footer a{border-bottom:1px solid var(--line)}
+.footer a:hover{border-color:var(--orange);color:var(--ink)}
+
+/* back link */
+.back{display:inline-block;margin-top:26px;font-size:.85rem;letter-spacing:.1em;border-bottom:1px solid var(--line);padding-bottom:2px}
+.back:hover{border-color:var(--orange)}
+.note{color:var(--muted);font-size:.9rem;margin:18px 0 0}
+
+@media(max-width:1040px){
+  .cats{grid-template-columns:repeat(3,1fr)}
+  .thumb{height:200px}
+}
+@media(max-width:860px){
+  .links{grid-template-columns:repeat(2,1fr)}
+  .about{grid-template-columns:1fr;gap:20px}
+}
+@media(max-width:640px){
+  .header{gap:14px}
+  .nav{gap:16px;font-size:.74rem;letter-spacing:.1em}
+  .cats{grid-template-columns:repeat(2,1fr)}
+  .thumb{height:160px}
+  .links{grid-template-columns:1fr}
+  .sec{padding:48px 0 0}
+  .hero{padding:34px 0 0}
+}
+
+.page-head{padding:56px 0 0}
+.page-head h1{font-size:clamp(1.6rem,3.4vw,2.6rem);margin:0 0 8px;font-weight:normal;line-height:1.35}
+.work{margin:28px 0 0;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:16px;display:flex;align-items:center;justify-content:center}
+.work img{max-height:74vh;width:auto;max-width:100%;height:auto;object-fit:contain}
+</style>
+</head>
+<body>
+
+<header class="header wrap">
+  <a href="index.html" aria-label="EBISHIMA home"><img class="brand" src="ebishima-logo-transparent.png" alt="EBISHIMA"></a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#gallery">GALLERY</a>
+    <a href="#books">BOOKS</a>
+    <a href="#links">LINKS</a>
+    <a href="#about">ABOUT</a>
+  </nav>
+</header>
+
+<main>
+  <section class="page-head wrap">
+    <p class="eyebrow">Collection 05</p>
+    <h1>OTHER</h1>
+    <p class="sec-sub">Selected work</p>
+    <div class="work">
+      <img src="other-inspired.png" alt="RIDE SLOW ポスター">
+    </div>
+    <p class="note">作品を追加していきます。</p>
+    <a class="back" href="index.html#gallery">&larr; GALLERY</a>
+  </section>
+</main>
+
+<footer class="footer wrap">
+  <span>© EBISHIMA</span>
+  <a href="mailto:ebishima.graphic@gmail.com">ebishima.graphic@gmail.com</a>
+</footer>
+
+</body>
+</html>
